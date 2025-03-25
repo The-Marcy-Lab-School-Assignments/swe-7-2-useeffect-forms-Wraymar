@@ -12,16 +12,16 @@ import GifSearch from "./components/GifSearch";
 import { useState } from "react";
 
 const App = () => {
-  const [searchterm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
 
   return (
     <div>
       <NavBar color="black" title="Giphy Search" />
       <div className="ui container">
-        <p>Search Term: {searchterm}</p>
+        <p>Search Term: {searchTerm}</p>
         <GifSearch setSearchTerm={setSearchTerm} />
         <br />
-        <GifContainer searchterm={searchterm} />
+        <GifContainer searchTerm={searchTerm} />
       </div>
     </div>
   );
