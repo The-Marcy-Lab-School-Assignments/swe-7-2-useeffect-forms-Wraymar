@@ -5,15 +5,36 @@ TODO:
 - Convert this form into a controlled form
 - Handle form submissions by setting a searchTerm state value that can be shared with the GifContainer component
 */
+import { useState } from "react";
 
-function GifSearch() {
-    return (
-        <form>
-            <label htmlFor="searchInput">Enter a Search Term </label>
-            <input type="text" className="form-control" id="searchInput" />
-            <button type="submit" className="btn btn-success">Search</button>
-        </form>
-    )
+function GifSearch({ setSearchTerm }) {
+  const [query, setQuery] = useState("");
+  const formSubmit = (e) => {
+    e.preventDefault();
+    setSearchTerm(query);
+  };
+
+  return (
+    <form onSubmit={formSubmit}>
+      <p>Query: {query}</p>
+      <label htmlFor="searchInput">Enter a Search Term </label>
+      <input
+        type="text"
+        className="form-control"
+        id="searchInput"
+        //value is whatever is inside of the search box
+        //it is set to be the query state
+        value={query}
+        //onChange means upon the text inside the search box changing we invoke setQuery to be the event.target(searchBox).value
+        onChange={(e) => {
+          setQuery(e.target.value);
+        }}
+      />
+      <button type="submit" className="btn btn-success">
+        Search
+      </button>
+    </form>
+  );
 }
 
-export default GifSearch
+export default GifSearch;
