@@ -13,7 +13,7 @@ import { getTrendingGifs, getGifsBySearch } from "./adapters/giphyAdapters.js";
 //   console.log(data);
 // };
 
-// Test your adapter functions here
+// Test your adapter functions here (using node in terminal)
 const testAdapters = async () => {
   const trendingTuple = await getTrendingGifs();
   const searchTuple = await getGifsBySearch();
